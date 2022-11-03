@@ -20,7 +20,7 @@ exports.verifyJwtToken = async (req, res, next) => {
             let centerDetails = await centerDb.find(findCriteria)
             if (centerDetails && Array.isArray(centerDetails) && centerDetails.length) {
                 req.centerDetails = centerDetails[0]
-                let isDisabled = req.centerDetails.disabled_for?.login_into_application || false
+                let isDisabled = req.centerDetails.disabled_for.?login_into_application || false
 
                 if (isDisabled) {
                     throw new Error("Your account has been disabled to login, contact admin")
